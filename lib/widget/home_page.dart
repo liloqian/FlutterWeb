@@ -10,6 +10,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
+  var imageKey = 1;
+
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
@@ -43,10 +45,21 @@ class _HomePageState extends State<HomePage> {
                         bottomLeft: Radius.circular(0),
                         bottomRight: Radius.circular(0),
                       ),
-                    )
-                )
-            )
+                    ),
+                    child: Column(
+                      children: [
+                        Image.network("http://0.0.0.0:8080/pic?key=$imageKey}"),
+                        FloatingActionButton(
+                          onPressed: () {
+                            setState(() {
+                              imageKey += 1;
+                            });
+                          },
+                          child: const Icon(Icons.add),
+                        )
+                      ],
+                    )))
           ],
-    ));
+        ));
   }
 }
