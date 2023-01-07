@@ -6,12 +6,12 @@ class ThemeApp {
   static ThemeData darkThemeData = themeData(darkColorScheme);
 
   static const ColorScheme lightColorScheme = ColorScheme(
-    primary: Color(0xFFB93C5D),
-    primaryContainer: Color(0xFF117378),
-    secondary: Color(0xFFEFF3F3),
-    secondaryContainer: Color(0xFFFAFBFB),
+    primary: Colors.black87,
+    primaryContainer:Colors.white54,
+    secondary: Colors.black26,
+    secondaryContainer: Colors.white54,
     background: Color(0xFFE6EBEB),
-    surface: Color(0xFFFAFBFB),
+    surface: Colors.white30,
     onBackground: Colors.white,
     error: Colors.black,
     onError: Colors.black,

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:happy_day/config.dart';
+import 'package:happy_day/widget/right/ImageTest.dart';
+import 'package:happy_day/widget/right/app_status.dart';
+
+import 'left/home_page_left.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -9,57 +12,42 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
-  var imageKey = 1;
-
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-    return Scaffold(
-        backgroundColor: Colors.black,
-        body: Column(
+    return Material(
+      child: Container(
+        color: colorScheme.background,
+        margin: const EdgeInsets.all(80.0),
+        padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
+        child: Row(
           children: [
-            Expanded(
-              flex: 1,
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                alignment: Alignment.center,
-                child: const Text(
-                  Config.appBarName,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 30.0,
-                    color: Colors.white,
-                  ),
-                ),
+            const Expanded(
+              flex: 2,
+              child: HomePageLeft(),
+            ),
+            SizedBox(
+              width: 1,
+              height: MediaQuery.of(context).size.height,
+              child: DecoratedBox(
+                decoration: BoxDecoration(color: colorScheme.onSecondary),
               ),
             ),
             Expanded(
-                flex: 8,
-                child: Container(
-                    decoration: BoxDecoration(
-                      color: colorScheme.background,
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(35),
-                        topRight: Radius.circular(35),
-                        bottomLeft: Radius.circular(0),
-                        bottomRight: Radius.circular(0),
-                      ),
-                    ),
-                    child: Column(
-                      children: [
-                        Image.network("http://0.0.0.0:8080/pic?key=$imageKey}"),
-                        FloatingActionButton(
-                          onPressed: () {
-                            setState(() {
-                              imageKey += 1;
-                            });
-                          },
-                          child: const Icon(Icons.add),
-                        )
-                      ],
-                    )))
+              flex: 7,
+              child: Column(
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: AppStatus(),
+                  ),
+                  Expanded(flex: 12, child: ImageTest())
+                ],
+              ),
+            )
           ],
-        ));
+        ),
+      ),
+    );
   }
 }

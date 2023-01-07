@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:happy_day/widget/home_page.dart';
+
+import '../widget/home_page.dart';
 
 class RouteMain {
 
